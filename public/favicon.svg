@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <circle cx="16" cy="16" r="16" fill="#122B22" />
+  <circle cx="16" cy="16" r="14.5" fill="none" stroke="#B99B65" stroke-width="0.8" opacity="0.6" />
+  <g transform="translate(16, 16) scale(0.65) translate(-16, -16)">
+    <!-- Elegant twin botanical leaf inspired by FORRESTA logo -->
+    <path
+      d="M16 6 C23 9 25 18 17 25 C14 22 13 16 16 6 Z"
+      fill="#B99B65"
+    />
+    <path
+      d="M16 8 C11 11 9 19 15 24 C17 21 17 15 16 8 Z"
+      fill="#EDE7D7"
+    />
+    <path
+      d="M16 26 L16 29"
+      stroke="#B99B65"
+      stroke-width="1.8"
+      stroke-linecap="round"
+    />
+  </g>
+</svg>
