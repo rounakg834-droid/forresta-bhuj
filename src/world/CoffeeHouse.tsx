@@ -13,7 +13,7 @@ import {
   type Texture,
 } from 'three'
 import { MeshoptDecoder } from 'three/examples/jsm/libs/meshopt_decoder.module.js'
-import { galleryItems } from '../data/gallery'
+import { forrestaImages } from '../data/forrestaImages'
 import { LightCones, Steam } from './Atmosphere'
 
 export const WORLD_URL = `${import.meta.env.BASE_URL}models/kemen-world.glb`
@@ -26,14 +26,14 @@ ShaderChunk.opaque_fragment += /* glsl */ `
 
 const PHOTO_ASPECT = 1
 const GALLERY_SLOTS = 10
-const photoUrls = galleryItems.slice(0, GALLERY_SLOTS).map(({ image }) => image.src)
+const photoUrls = forrestaImages.slice(0, GALLERY_SLOTS).map(({ src }) => src)
 
-/** Blender stores a neutral plaster and cloth; each surface takes its colour here. */
+/** Forresta brand tints: Deep Forest Green, Warm Cream, Muted Gold */
 const tints: Record<string, string> = {
-  wall_warm: '#a58a6f',
-  wall_dark: '#3a261c',
-  cloth: '#b59878',
-  rug: '#4b352a',
+  wall_warm: '#c4ad88',
+  wall_dark: '#142a20',
+  cloth: '#b99b65',
+  rug: '#0f231b',
 }
 
 const lamps: { position: [number, number, number]; length: number; radius: number }[] = [

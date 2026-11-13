@@ -33,31 +33,31 @@ export function Hero() {
       aria-label="Welcome to FORRESTA BHUJ"
       className="relative isolate flex min-h-[100svh] w-full items-end overflow-hidden text-cream"
     >
-      {/* Real Café Photograph Background - Garden Terrace at Night */}
-      <div className="absolute inset-0 -z-20 overflow-hidden">
+      {/* Real Café Photograph Background - Garden Terrace at Night (Blended with 3D Canvas) */}
+      <div className="absolute inset-0 -z-20 overflow-hidden pointer-events-none">
         <motion.img
           ref={bgImageRef}
-          initial={{ scale: 1.15, opacity: 0.7 }}
-          animate={{ scale: 1.02, opacity: 1 }}
+          initial={{ scale: 1.15, opacity: 0.2 }}
+          animate={{ scale: 1.02, opacity: 0.35 }}
           transition={{ duration: 1.6, ease: easePremium }}
           src={heroImage.src}
           alt="Forresta Bhuj open-air garden terrace with glowing lanterns and frangipani trees at night"
-          className="size-full object-cover object-center will-change-transform"
+          className="size-full object-cover object-center will-change-transform opacity-35"
           loading="eager"
           decoding="async"
         />
         {/* Cinematic Multi-Layer Gradient Overlays in Deep Forest Green */}
         <div
           aria-hidden="true"
-          className="absolute inset-0 bg-gradient-to-t from-forest-deep via-forest-deep/80 to-forest-deep/35"
+          className="absolute inset-0 bg-gradient-to-t from-forest-deep/95 via-forest-deep/55 to-transparent"
         />
         <div
           aria-hidden="true"
-          className="absolute inset-0 bg-gradient-to-r from-forest-deep/92 via-forest-deep/55 to-transparent lg:w-3/4"
+          className="absolute inset-0 bg-gradient-to-r from-forest-deep/90 via-forest-deep/45 to-transparent lg:w-3/4"
         />
         <div
           aria-hidden="true"
-          className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(185,155,101,0.22)_0%,transparent_60%)]"
+          className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(185,155,101,0.18)_0%,transparent_60%)]"
         />
       </div>
 

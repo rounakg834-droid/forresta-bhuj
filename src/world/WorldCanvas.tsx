@@ -13,11 +13,11 @@ import { qualityByTier, startingTier, type Tier } from './quality'
 
 const FILL_LIGHTS: { position: [number, number, number]; color: string; intensity: number; distance: number }[] = [
   { position: [-3.4, 2.1, -9], color: '#ffd2a8', intensity: 14, distance: 10 },
-  { position: [3.6, 2.5, -15], color: '#ffd2a0', intensity: 12, distance: 7 },
+  { position: [3.6, 2.5, -15], color: '#b99b65', intensity: 12, distance: 7 },
   { position: [0, 3, -38], color: '#ffba85', intensity: 16, distance: 11 },
   { position: [0, 3, -25], color: '#ffe0bc', intensity: 26, distance: 11 },
   { position: [0, 2.8, -1.5], color: '#ffc58a', intensity: 3, distance: 6 },
-  { position: [1.4, 2.2, -6.2], color: '#ffc58a', intensity: 8, distance: 7 },
+  { position: [1.4, 2.2, -6.2], color: '#b99b65', intensity: 8, distance: 7 },
 ]
 
 function ReadySignal({ onReady }: { onReady: () => void }) {
@@ -84,9 +84,9 @@ export default function WorldCanvas({ onReady, onLost }: { onReady: () => void; 
         })
       }}
     >
-      <fogExp2 attach="fog" args={['#150b07', 0.07]} />
-      <color attach="background" args={['#120906']} />
-      <hemisphereLight args={['#ffe2c0', '#2a160c', 0.22]} />
+      <fogExp2 attach="fog" args={['#0a1813', 0.07]} />
+      <color attach="background" args={['#08140f']} />
+      <hemisphereLight args={['#ede7d7', '#0a1813', 0.28]} />
       {FILL_LIGHTS.slice(0, quality.fillLights).map((light) => (
         <pointLight key={light.position.join()} {...light} decay={1.6} />
       ))}

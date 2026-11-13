@@ -46,6 +46,7 @@ export interface Drink {
   notes: string
   category: DrinkCategory
   image: Photo
+  model?: string
 }
 
 export interface Highlight {

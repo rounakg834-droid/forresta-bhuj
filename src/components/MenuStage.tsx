@@ -77,28 +77,31 @@ export function MenuStage() {
     >
       <SectionHeading
         id="menu-heading"
-        index="02"
-        label="The Menu"
+        index="04"
+        label="Artisan Coffee Bar"
         tone="dark"
         title={
           <>
-            Our Signature <em className="font-normal italic">Brews</em>
+            Interactive 3D <em className="font-normal italic text-gold">Bar Experience</em>
           </>
         }
       />
       <Reveal delay={0.1}>
         <div aria-live="polite" className="mt-6 max-w-md">
-          <p className="font-serif text-2xl text-cream">
+          <div className="inline-flex items-center gap-1.5 rounded-full bg-forest-card/80 px-3 py-1 text-[0.68rem] font-bold tracking-wider text-gold border border-gold/30 mb-2">
+            <span>Drag or swipe drink to rotate in 3D</span>
+          </div>
+          <p className="font-serif text-2xl sm:text-3xl text-cream">
             {active.name}
-            <span className="ml-3 text-lg text-beige">₱{active.price}</span>
+            <span className="ml-3 text-lg font-sans font-semibold text-gold">₹{active.price}</span>
           </p>
-          <p className="mt-2 leading-relaxed text-pretty text-cream/90">{active.description}</p>
-          <p className="mt-1 text-sm text-beige">{active.notes}</p>
+          <p className="mt-2 leading-relaxed text-pretty text-cream/90 text-sm sm:text-base">{active.description}</p>
+          <p className="mt-1 text-xs sm:text-sm text-gold">{active.notes}</p>
         </div>
         <div
           role="group"
-          aria-label="Choose a drink to inspect"
-          className="pointer-events-auto mt-6 flex w-fit max-w-full gap-1.5 overflow-x-auto rounded-full bg-espresso-deep/55 p-1.5 backdrop-blur-md"
+          aria-label="Choose a drink to inspect in 3D"
+          className="pointer-events-auto mt-6 flex w-fit max-w-full gap-1.5 overflow-x-auto rounded-full bg-forest-deep/80 p-1.5 backdrop-blur-md border border-forest-border no-scrollbar"
         >
           {drinks.map(({ id, name }) => (
             <button
@@ -111,10 +114,10 @@ export function MenuStage() {
               }}
               className={cn(
                 'h-11 shrink-0 rounded-full px-4 text-xs font-semibold whitespace-nowrap transition-colors duration-300',
-                activeId === id ? 'bg-cream text-espresso' : 'text-cream hover:bg-cream/15',
+                activeId === id ? 'bg-gold text-forest-deep font-bold shadow-gold' : 'text-cream hover:bg-forest-card',
               )}
             >
-              {name.replace('Kemen ', '')}
+              {name.replace('Forresta ', '')}
             </button>
           ))}
         </div>

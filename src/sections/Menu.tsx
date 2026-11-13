@@ -4,6 +4,7 @@ import { Sparkles, CheckCircle2 } from 'lucide-react'
 import { menuCategories, verifiedMenuItems, type ForrestaMenuCategory } from '../data/forrestaMenu'
 import { useGsapContext, gsap } from '../hooks/useGsapScrollTrigger'
 import { scrollToSection } from '../lib/scrollToSection'
+import { MenuStage } from '../components/MenuStage'
 import { cn } from '../lib/cn'
 import { easePremium } from '../lib/motion'
 
@@ -44,27 +45,32 @@ export function Menu() {
       ref={sectionRef}
       id="menu"
       aria-labelledby="menu-heading"
-      className="relative section-pad bg-forest-card/25 text-cream overflow-hidden border-t border-forest-border/40"
+      className="relative text-cream overflow-hidden border-t border-forest-border/40"
     >
-      <div className="container-x">
-        {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
-          <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-2 rounded-full border border-gold/30 bg-forest-card px-3.5 py-1 text-gold">
-              <Sparkles className="size-3" />
-              <span className="eyebrow !text-[0.65rem] !tracking-[0.2em]">Verified Offerings</span>
+      {/* Interactive 3D Bar & Drink Turntable Stage */}
+      <MenuStage />
+
+      {/* Handcrafted Culinary Specialties & Verified Dishes */}
+      <div className="section-pad !pt-12 bg-forest-card/30 border-t border-forest-border/40">
+        <div className="container-x">
+          {/* Section Header */}
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
+            <div className="max-w-2xl">
+              <div className="inline-flex items-center gap-2 rounded-full border border-gold/30 bg-forest-card px-3.5 py-1 text-gold">
+                <Sparkles className="size-3" />
+                <span className="eyebrow !text-[0.65rem] !tracking-[0.2em]">Verified Offerings</span>
+              </div>
+              <h2
+                id="menu-heading"
+                className="mt-4 font-serif text-[clamp(2.1rem,5vw,3.75rem)] font-light leading-tight text-cream"
+              >
+                Handcrafted <em className="italic font-normal text-gold">Culinary Creations.</em>
+              </h2>
             </div>
-            <h2
-              id="menu-heading"
-              className="mt-4 font-serif text-[clamp(2.1rem,5vw,3.75rem)] font-light leading-tight text-cream"
-            >
-              Handcrafted <em className="italic font-normal text-gold">Culinary Creations.</em>
-            </h2>
+            <p className="max-w-md text-sm sm:text-base text-cream/75 leading-relaxed font-sans">
+              Prepared fresh to order in our Bhuj kitchen. From signature loaded club sandwiches to earthen kulhad delicacies.
+            </p>
           </div>
-          <p className="max-w-md text-sm sm:text-base text-cream/75 leading-relaxed font-sans">
-            Prepared fresh to order in our Bhuj kitchen. From signature loaded club sandwiches to earthen kulhad delicacies.
-          </p>
-        </div>
 
         {/* Filter Navigation Tabs (Touch-friendly & Swipeable) */}
         <div className="mt-10 sm:mt-14 overflow-x-auto no-scrollbar -mx-4 px-4 sm:mx-0 sm:px-0">
@@ -191,6 +197,7 @@ export function Menu() {
           </p>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
   )
 }

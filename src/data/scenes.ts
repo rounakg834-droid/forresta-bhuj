@@ -41,6 +41,14 @@ export function isSceneId(id: string): id is SceneId {
   return Object.hasOwn(scenes, id)
 }
 
+export function toSceneId(id: string): SceneId | null {
+  if (isSceneId(id)) return id
+  if (id === 'story') return 'about'
+  if (id === 'experience') return 'about'
+  if (id === 'visit') return 'contact'
+  return null
+}
+
 /** The image each scene shows first, so a scene has something to fade in the moment it is chosen. */
 export const scenePreloadUrls = Object.values(scenes).flatMap((scene: Scene) =>
   scene.kind === 'video' ? [scene.poster] : scene.photos.map(({ src }) => src),

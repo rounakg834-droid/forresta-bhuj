@@ -7,11 +7,11 @@ export interface ForrestaNavLink {
 
 export const forrestaNavLinks: ForrestaNavLink[] = [
   { id: 'home', label: 'Home', href: '#home', number: '01' },
-  { id: 'story', label: 'Our Story', href: '#story', number: '02' },
+  { id: 'about', label: 'About', href: '#about', number: '02' },
   { id: 'experience', label: 'Experience', href: '#experience', number: '03' },
-  { id: 'menu', label: 'Menu', href: '#menu', number: '04' },
-  { id: 'gallery', label: 'Gallery', href: '#gallery', number: '05' },
-  { id: 'visit', label: 'Visit Us', href: '#visit', number: '06' },
+  { id: 'gallery', label: 'Gallery', href: '#gallery', number: '04' },
+  { id: 'menu', label: 'Menu', href: '#menu', number: '05' },
+  { id: 'contact', label: 'Visit Us', href: '#contact', number: '06' },
 ]
 
 export const forrestaInfo = {

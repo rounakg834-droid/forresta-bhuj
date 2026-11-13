@@ -75,7 +75,7 @@ export function About() {
   return (
     <section
       ref={sectionRef}
-      id="story"
+      id="about"
       aria-labelledby="story-heading"
       className="relative section-pad bg-forest-card/30 text-cream overflow-hidden border-t border-forest-border/40"
     >

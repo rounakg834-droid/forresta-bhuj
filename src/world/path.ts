@@ -79,12 +79,12 @@ export interface Mood {
 
 /** Grading per room. It blends along the path, so light changes as you travel through a door. */
 export const moods: { at: number; mood: Mood }[] = [
-  { at: 0, mood: { fog: '#150b07', fogDensity: 0.07, key: 26, environment: 0.3 } },
-  { at: stations.home.to, mood: { fog: '#150b07', fogDensity: 0.07, key: 26, environment: 0.3 } },
-  { at: stations.about.from, mood: { fog: '#2a170d', fogDensity: 0.05, key: 18, environment: 0.6 } },
-  { at: stations.menu.from, mood: { fog: '#24140c', fogDensity: 0.045, key: 20, environment: 0.5 } },
-  { at: stations.gallery.from, mood: { fog: '#1b1210', fogDensity: 0.04, key: 26, environment: 0.72 } },
-  { at: stations.gallery.to, mood: { fog: '#1b1210', fogDensity: 0.04, key: 26, environment: 0.72 } },
-  { at: stations.contact.from, mood: { fog: '#3a2317', fogDensity: 0.05, key: 10, environment: 0.62 } },
-  { at: 1, mood: { fog: '#3a2317', fogDensity: 0.05, key: 10, environment: 0.62 } },
+  { at: 0, mood: { fog: '#0a1813', fogDensity: 0.07, key: 26, environment: 0.3 } },
+  { at: stations.home.to, mood: { fog: '#0a1813', fogDensity: 0.07, key: 26, environment: 0.3 } },
+  { at: stations.about.from, mood: { fog: '#142a20', fogDensity: 0.05, key: 18, environment: 0.6 } },
+  { at: stations.menu.from, mood: { fog: '#10241b', fogDensity: 0.045, key: 20, environment: 0.5 } },
+  { at: stations.gallery.from, mood: { fog: '#0c1d16', fogDensity: 0.04, key: 26, environment: 0.72 } },
+  { at: stations.gallery.to, mood: { fog: '#0c1d16', fogDensity: 0.04, key: 26, environment: 0.72 } },
+  { at: stations.contact.from, mood: { fog: '#122b22', fogDensity: 0.05, key: 10, environment: 0.62 } },
+  { at: 1, mood: { fog: '#122b22', fogDensity: 0.05, key: 10, environment: 0.62 } },
 ]

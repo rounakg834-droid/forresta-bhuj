@@ -35,7 +35,7 @@ export function Contact() {
 
   return (
     <section
-      id="visit"
+      id="contact"
       aria-labelledby="visit-heading"
       className="relative section-pad bg-forest-card/30 text-cream overflow-hidden border-t border-forest-border/40"
     >

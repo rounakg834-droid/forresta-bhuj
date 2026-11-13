@@ -138,6 +138,13 @@
     outline: none;
   }
 
+  /* Cinematic 3D Camera Travel: Page dims smoothly during camera flight */
+  html[data-travelling] main {
+    opacity: 0.16;
+    pointer-events: none;
+    transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
   /* Hide scrollbar for clean horizontal swipeable lists while maintaining scroll */
   .no-scrollbar::-webkit-scrollbar {
     display: none;
