@@ -1,8 +1,8 @@
 {
-  "name": "kemen-coffee",
+  "name": "forresta-bhuj",
   "private": true,
   "version": "1.0.0",
-  "description": "A premium static marketing website for KEMEN COFFEE, with a real-time 3D coffee house.",
+  "description": "A premium, cinematic, mobile-first 3D website for Forresta Bhuj, Gujarat, India.",
   "type": "module",
   "scripts": {
     "dev": "vite",
