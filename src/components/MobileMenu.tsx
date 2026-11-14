@@ -46,19 +46,19 @@ function MobileMenuDialog({ activeId, onClose }: Omit<MobileMenuProps, 'open'>) 
       initial={{ opacity: 0, x: '100%' }}
       animate={{ opacity: 1, x: 0 }}
       exit={{ opacity: 0, x: '100%' }}
-      transition={{ duration: 0.4, ease: easePremium }}
+      transition={{ duration: 0.35, ease: easePremium }}
       className="fixed inset-0 z-50 flex flex-col overflow-y-auto bg-forest-deep text-cream"
     >
-      {/* Drawer Header */}
-      <div className="container-x flex h-20 shrink-0 items-center justify-between border-b border-forest-border">
+      {/* Drawer Header with Safe-Area Padding */}
+      <div className="container-x flex h-20 shrink-0 items-center justify-between border-b border-forest-border pt-[env(safe-area-inset-top,0px)]">
         <Wordmark size="sm" />
         <button
           type="button"
           onClick={onClose}
           aria-label="Close navigation menu"
-          className="grid size-12 place-items-center rounded-full border border-gold/30 bg-forest-card text-gold transition-colors hover:bg-gold hover:text-forest-deep"
+          className="grid size-11 place-items-center rounded-full border border-gold/30 bg-forest-card text-gold transition-colors hover:bg-gold hover:text-forest-deep active:scale-95"
         >
-          <X aria-hidden="true" className="size-6" />
+          <X aria-hidden="true" className="size-5" />
         </button>
       </div>
 
@@ -73,18 +73,18 @@ function MobileMenuDialog({ activeId, onClose }: Omit<MobileMenuProps, 'open'>) 
                 key={id}
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.45, delay: 0.08 + index * 0.05, ease: easePremium }}
+                transition={{ duration: 0.4, delay: 0.05 + index * 0.04, ease: easePremium }}
               >
                 <a
                   href={`#${id}`}
                   onClick={(event) => handleNavigate(event, id)}
                   aria-current={isActive ? 'true' : undefined}
                   className={cn(
-                    'group flex items-center justify-between py-4 text-left transition-colors',
+                    'group flex items-center justify-between py-4 text-left transition-colors active:text-gold',
                     isActive ? 'text-gold' : 'text-cream hover:text-gold'
                   )}
                 >
-                  <span className="font-serif text-2xl sm:text-3xl font-light tracking-wide">
+                  <span className="font-serif text-2xl font-light tracking-wide">
                     {label}
                   </span>
                   <span className="font-sans text-xs font-semibold tracking-widest text-gold/60 group-hover:text-gold">
@@ -97,28 +97,28 @@ function MobileMenuDialog({ activeId, onClose }: Omit<MobileMenuProps, 'open'>) 
         </ul>
       </nav>
 
-      {/* Café Quick Details & Action Drawer Footer */}
-      <div className="container-x shrink-0 border-t border-forest-border bg-forest-card/50 py-6 space-y-4">
+      {/* Quick Details & Action Drawer Footer with Safe-Area Padding */}
+      <div className="container-x shrink-0 border-t border-forest-border bg-forest-card/50 py-5 pb-[calc(1.5rem+env(safe-area-inset-bottom,0px))] space-y-3.5">
         {/* Address & Hours snippet */}
-        <div className="space-y-2 text-xs text-cream/70">
+        <div className="space-y-1.5 text-xs text-cream/70">
           <div className="flex items-center gap-2 text-gold">
             <MapPin className="size-3.5 shrink-0" />
             <span className="font-semibold">{forrestaInfo.location.venue}, {forrestaInfo.location.street}</span>
           </div>
           <p className="pl-5 text-cream/60">{forrestaInfo.location.city}, {forrestaInfo.location.state}</p>
-          <div className="flex items-center gap-2 pt-1 text-cream/80">
+          <div className="flex items-center gap-2 pt-0.5 text-cream/80">
             <Clock className="size-3.5 shrink-0 text-gold" />
             <span>{forrestaInfo.timings.hours} ({forrestaInfo.timings.days})</span>
           </div>
         </div>
 
-        {/* Action Buttons */}
-        <div className="grid grid-cols-2 gap-3 pt-2">
+        {/* Action Buttons with 48px touch heights */}
+        <div className="grid grid-cols-2 gap-3 pt-1">
           <a
             href={forrestaInfo.location.mapsUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-center gap-2 rounded-xl bg-gold py-3 text-xs font-bold uppercase tracking-wider text-forest-deep shadow-gold active:scale-95"
+            className="flex h-12 items-center justify-center gap-2 rounded-xl bg-gold text-xs font-bold uppercase tracking-wider text-forest-deep shadow-gold active:scale-95 transition-transform"
           >
             <MapPin className="size-4" />
             <span>Directions</span>
@@ -126,7 +126,7 @@ function MobileMenuDialog({ activeId, onClose }: Omit<MobileMenuProps, 'open'>) 
 
           <a
             href={forrestaInfo.contact.phoneHref}
-            className="flex items-center justify-center gap-2 rounded-xl border border-gold/40 bg-forest-card py-3 text-xs font-bold uppercase tracking-wider text-gold active:bg-gold/10"
+            className="flex h-12 items-center justify-center gap-2 rounded-xl border border-gold/40 bg-forest-card text-xs font-bold uppercase tracking-wider text-gold active:bg-gold/10 active:scale-95 transition-transform"
           >
             <Phone className="size-4" />
             <span>Call Café</span>
@@ -134,15 +134,15 @@ function MobileMenuDialog({ activeId, onClose }: Omit<MobileMenuProps, 'open'>) 
         </div>
 
         {/* Instagram social link */}
-        <div className="pt-2 text-center">
+        <div className="pt-1 text-center">
           <a
             href={forrestaInfo.contact.instagramUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-xs text-gold/80 hover:text-gold"
+            className="inline-flex items-center gap-2 text-xs text-gold/80 hover:text-gold py-1"
           >
             <InstagramIcon className="size-4" />
-            <span>Follow on Instagram {forrestaInfo.contact.instagramHandle}</span>
+            <span>Instagram {forrestaInfo.contact.instagramHandle}</span>
           </a>
         </div>
       </div>

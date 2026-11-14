@@ -22,10 +22,10 @@ export function Navbar() {
       <header
         role="banner"
         className={cn(
-          'fixed inset-x-0 top-0 z-40 transition-all duration-500 ease-out',
+          'fixed inset-x-0 top-0 z-40 transition-all duration-500 ease-out pt-[max(0.5rem,env(safe-area-inset-top,0.5rem))]',
           solid
-            ? 'bg-forest-deep/95 text-cream py-3 shadow-[0_4px_24px_-4px_rgba(10,24,19,0.8)] backdrop-blur-md border-b border-gold/20'
-            : 'bg-gradient-to-b from-forest-deep/90 via-forest-deep/40 to-transparent py-4 sm:py-5 text-cream'
+            ? 'bg-forest-deep/95 text-cream pb-2.5 sm:pb-3 shadow-[0_4px_24px_-4px_rgba(10,24,19,0.8)] backdrop-blur-md border-b border-gold/20'
+            : 'bg-gradient-to-b from-forest-deep/90 via-forest-deep/40 to-transparent pb-3 sm:pb-4 text-cream'
         )}
       >
         <nav
@@ -37,7 +37,7 @@ export function Navbar() {
             id="brand-link"
             href="#home"
             aria-label="FORRESTA BHUJ Home"
-            className="group inline-flex items-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold rounded-lg p-1"
+            className="group inline-flex items-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold rounded-lg p-0.5"
           >
             <Wordmark size="md" />
           </a>
@@ -75,7 +75,7 @@ export function Navbar() {
           </ul>
 
           {/* Right Action Controls */}
-          <div className="flex items-center gap-2 sm:gap-3">
+          <div className="flex items-center gap-2">
             {/* Desktop Visit CTA */}
             <a
               href="#contact"
@@ -91,7 +91,7 @@ export function Navbar() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Open Directions in Google Maps"
-              className="sm:hidden grid size-11 place-items-center rounded-full border border-gold/30 bg-forest-card/80 text-gold active:bg-gold active:text-forest-deep"
+              className="sm:hidden grid size-10 place-items-center rounded-full border border-gold/30 bg-forest-card/80 text-gold active:bg-gold active:text-forest-deep transition-transform active:scale-95"
             >
               <MapPin className="size-4" />
             </a>
@@ -103,9 +103,9 @@ export function Navbar() {
               aria-label="Open mobile navigation menu"
               aria-expanded={menuOpen}
               aria-controls="mobile-menu"
-              className="grid size-12 place-items-center rounded-full border border-cream/15 bg-forest-card/60 text-cream transition-colors hover:border-gold/40 hover:text-gold active:bg-forest-hover lg:hidden"
+              className="grid size-11 place-items-center rounded-full border border-cream/15 bg-forest-card/60 text-cream transition-colors hover:border-gold/40 hover:text-gold active:bg-forest-hover active:scale-95 lg:hidden"
             >
-              <Menu aria-hidden="true" className="size-6" />
+              <Menu aria-hidden="true" className="size-5" />
             </button>
           </div>
         </nav>
