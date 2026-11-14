@@ -21,15 +21,15 @@ export function Contact() {
     if (!formData.name || !formData.phone) {
       showToast({
         title: 'Please fill required fields',
-        description: 'Kindly provide your name and contact phone number.',
+        description: 'Kindly provide your name and phone number.',
       })
       return
     }
 
     setFormSubmitted(true)
     showToast({
-      title: 'Enquiry Received!',
-      description: `Thank you, ${formData.name}. Our team at Forresta Bhuj looks forward to hosting you!`,
+      title: 'Enquiry Received',
+      description: `Thank you, ${formData.name}. Our team at Forresta Bhuj looks forward to hosting you.`,
     })
   }
 
@@ -39,63 +39,65 @@ export function Contact() {
       aria-labelledby="visit-heading"
       className="relative section-pad bg-forest-card/30 text-cream overflow-hidden border-t border-forest-border/40"
     >
+      {/* Anchor for backward compatibility with visit links */}
+      <span id="visit" className="sr-only" aria-hidden="true" />
+
       <div className="container-x">
         {/* Section Header */}
         <div className="max-w-2xl">
           <div className="inline-flex items-center gap-2 rounded-full border border-gold/30 bg-forest-card px-3.5 py-1 text-gold">
             <Sparkles className="size-3" />
-            <span className="eyebrow !text-[0.65rem] !tracking-[0.2em]">Find Us & Connect</span>
+            <span className="eyebrow !text-[0.65rem] !tracking-[0.2em]">Visit &amp; Contact</span>
           </div>
           <h2
             id="visit-heading"
-            className="mt-4 font-serif text-[clamp(2.1rem,5vw,3.75rem)] font-light leading-tight text-cream"
+            className="mt-3 sm:mt-4 font-serif text-[clamp(2rem,4.5vw,3.5rem)] font-light leading-tight text-cream"
           >
-            Visit Us at <em className="italic font-normal text-gold">Airport Road.</em>
+            Visit <em className="italic font-normal text-gold">Forresta.</em>
           </h2>
-          <p className="mt-4 text-sm sm:text-base leading-relaxed text-cream/75 font-sans">
-            We are conveniently located at HIMS Business Park in Bhuj. Come for the garden terrace breeze,
-            stay for the handcrafted drinks and wholesome meals.
+          <p className="mt-3 text-sm sm:text-base leading-relaxed text-cream/75 font-sans">
+            HIMS Business Park, Airport Road, Bhuj. Open daily from 11:00 AM to 11:30 PM.
           </p>
         </div>
 
         {/* Content Grid */}
-        <div className="mt-12 sm:mt-16 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
+        <div className="mt-10 sm:mt-14 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
           {/* Left Column: Facade Image & Verified Address Details */}
-          <div className="lg:col-span-6 flex flex-col gap-6">
+          <div className="lg:col-span-6 flex flex-col gap-5 sm:gap-6">
             {/* Real Exterior Facade Image Card */}
             <div className="relative overflow-hidden rounded-2xl sm:rounded-3xl border border-gold/30 bg-forest-card shadow-2xl group">
               <img
                 src={exteriorImage.src}
                 alt={exteriorImage.caption}
-                className="w-full aspect-[16/10] sm:aspect-[4/3] object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
+                className="w-full aspect-[16/10] sm:aspect-[4/3] object-cover object-top transition-transform duration-700 ease-out group-hover:scale-104"
                 loading="lazy"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-forest-deep via-forest-deep/40 to-transparent" />
-              <div className="absolute bottom-5 inset-x-5 sm:bottom-6 sm:inset-x-6">
+              <div className="absolute bottom-4 inset-x-4 sm:bottom-6 sm:inset-x-6">
                 <span className="eyebrow text-gold font-bold">Location Verified</span>
-                <p className="mt-1 font-serif text-lg sm:text-xl font-light text-cream">
+                <p className="mt-1 font-serif text-base sm:text-lg font-light text-cream">
                   {forrestaInfo.location.formattedAddress}
                 </p>
               </div>
             </div>
 
             {/* Quick Contact & Hours Cards */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div className="rounded-2xl border border-forest-border bg-forest-card/70 p-5">
-                <div className="flex items-center gap-3 text-gold">
-                  <Clock className="size-5" />
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+              <div className="rounded-2xl border border-forest-border bg-forest-card/70 p-4 sm:p-5">
+                <div className="flex items-center gap-2.5 text-gold">
+                  <Clock className="size-4 sm:size-5" />
                   <span className="eyebrow !text-xs font-bold">Timings</span>
                 </div>
-                <p className="mt-2 text-base font-serif text-cream">{forrestaInfo.timings.hours}</p>
+                <p className="mt-2 text-sm sm:text-base font-serif text-cream">{forrestaInfo.timings.hours}</p>
                 <p className="text-xs text-cream/60 mt-0.5">{forrestaInfo.timings.days}</p>
               </div>
 
-              <div className="rounded-2xl border border-forest-border bg-forest-card/70 p-5">
-                <div className="flex items-center gap-3 text-gold">
-                  <MapPin className="size-5" />
+              <div className="rounded-2xl border border-forest-border bg-forest-card/70 p-4 sm:p-5">
+                <div className="flex items-center gap-2.5 text-gold">
+                  <MapPin className="size-4 sm:size-5" />
                   <span className="eyebrow !text-xs font-bold">Landmark</span>
                 </div>
-                <p className="mt-2 text-base font-serif text-cream">{forrestaInfo.location.venue}</p>
+                <p className="mt-2 text-sm sm:text-base font-serif text-cream">{forrestaInfo.location.venue}</p>
                 <p className="text-xs text-cream/60 mt-0.5">{forrestaInfo.location.street}, Bhuj</p>
               </div>
             </div>
@@ -106,7 +108,7 @@ export function Contact() {
                 href={forrestaInfo.location.mapsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-1 inline-flex items-center justify-center gap-2 rounded-xl bg-gold py-3.5 px-5 text-xs font-bold uppercase tracking-wider text-forest-deep shadow-gold hover:bg-gold-light active:scale-95 transition-all"
+                className="flex-1 inline-flex items-center justify-center gap-2 rounded-xl bg-gold py-3 px-5 text-xs font-bold uppercase tracking-wider text-forest-deep shadow-gold hover:bg-gold-light active:scale-95 transition-all"
               >
                 <MapPin className="size-4" />
                 <span>Open in Google Maps</span>
@@ -116,7 +118,7 @@ export function Contact() {
                 href={forrestaInfo.contact.instagramUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 rounded-xl border border-gold/40 bg-forest-card/90 py-3.5 px-5 text-xs font-bold uppercase tracking-wider text-gold hover:bg-gold hover:text-forest-deep active:scale-95 transition-all"
+                className="inline-flex items-center justify-center gap-2 rounded-xl border border-gold/40 bg-forest-card/90 py-3 px-5 text-xs font-bold uppercase tracking-wider text-gold hover:bg-gold hover:text-forest-deep active:scale-95 transition-all"
               >
                 <InstagramIcon className="size-4" />
                 <span>Instagram {forrestaInfo.contact.instagramHandle}</span>
@@ -126,20 +128,20 @@ export function Contact() {
 
           {/* Right Column: Table / Celebration Reservation & Enquiry Form */}
           <div className="lg:col-span-6">
-            <div className="rounded-2xl sm:rounded-3xl border border-gold/30 bg-forest-card/85 p-6 sm:p-8 shadow-2xl backdrop-blur-md">
-              <h3 className="font-serif text-2xl sm:text-3xl font-light text-cream">
-                Plan Your Visit or Gathering
+            <div className="rounded-2xl sm:rounded-3xl border border-gold/30 bg-forest-card/85 p-5 sm:p-7 shadow-2xl backdrop-blur-md">
+              <h3 className="font-serif text-xl sm:text-2xl font-light text-cream">
+                Plan Your Visit
               </h3>
-              <p className="mt-2 text-xs sm:text-sm text-cream/70 font-sans">
-                Planning a dinner, birthday celebration, or group gathering on our garden terrace? Send us an enquiry.
+              <p className="mt-1.5 text-xs sm:text-sm text-cream/70 font-sans">
+                Planning a dinner, birthday, or gathering? Send a quick note.
               </p>
 
               {formSubmitted ? (
-                <div className="mt-8 rounded-2xl border border-gold/40 bg-forest-deep/60 p-6 text-center">
-                  <CheckCircle2 className="size-10 text-gold mx-auto mb-3" />
-                  <h4 className="font-serif text-xl text-cream">Enquiry Sent Successfully</h4>
-                  <p className="mt-2 text-xs sm:text-sm text-cream/70">
-                    Thank you, {formData.name}! Our team at Forresta Bhuj looks forward to welcoming you to the café.
+                <div className="mt-6 rounded-2xl border border-gold/40 bg-forest-deep/60 p-5 text-center">
+                  <CheckCircle2 className="size-9 text-gold mx-auto mb-2" />
+                  <h4 className="font-serif text-lg text-cream">Enquiry Received</h4>
+                  <p className="mt-1.5 text-xs text-cream/70">
+                    Thank you, {formData.name}! Our team looks forward to welcoming you.
                   </p>
                   <button
                     type="button"
@@ -147,15 +149,15 @@ export function Contact() {
                       setFormSubmitted(false)
                       setFormData({ name: '', phone: '', guests: '2 Guests', date: '', note: '' })
                     }}
-                    className="mt-5 inline-block text-xs font-bold uppercase tracking-wider text-gold underline hover:text-gold-light"
+                    className="mt-4 inline-block text-xs font-bold uppercase tracking-wider text-gold underline hover:text-gold-light"
                   >
                     Send Another Note
                   </button>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="mt-6 space-y-4">
+                <form onSubmit={handleSubmit} className="mt-5 space-y-3.5">
                   <div>
-                    <label htmlFor="name" className="block text-xs font-semibold uppercase tracking-wider text-gold mb-1.5">
+                    <label htmlFor="name" className="block text-xs font-semibold uppercase tracking-wider text-gold mb-1">
                       Your Name *
                     </label>
                     <input
@@ -165,13 +167,13 @@ export function Contact() {
                       placeholder="e.g. Aarav Patel"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full rounded-xl border border-forest-border bg-forest-deep/80 px-4 py-3 text-sm text-cream placeholder-cream/40 focus:border-gold focus:outline-none focus:ring-1 focus:ring-gold"
+                      className="w-full rounded-xl border border-forest-border bg-forest-deep/80 px-3.5 py-2.5 text-sm text-cream placeholder-cream/40 focus:border-gold focus:outline-none focus:ring-1 focus:ring-gold"
                     />
                   </div>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
                     <div>
-                      <label htmlFor="phone" className="block text-xs font-semibold uppercase tracking-wider text-gold mb-1.5">
+                      <label htmlFor="phone" className="block text-xs font-semibold uppercase tracking-wider text-gold mb-1">
                         Phone Number *
                       </label>
                       <input
@@ -181,48 +183,48 @@ export function Contact() {
                         placeholder="+91 98765 43210"
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                        className="w-full rounded-xl border border-forest-border bg-forest-deep/80 px-4 py-3 text-sm text-cream placeholder-cream/40 focus:border-gold focus:outline-none focus:ring-1 focus:ring-gold"
+                        className="w-full rounded-xl border border-forest-border bg-forest-deep/80 px-3.5 py-2.5 text-sm text-cream placeholder-cream/40 focus:border-gold focus:outline-none focus:ring-1 focus:ring-gold"
                       />
                     </div>
 
                     <div>
-                      <label htmlFor="guests" className="block text-xs font-semibold uppercase tracking-wider text-gold mb-1.5">
+                      <label htmlFor="guests" className="block text-xs font-semibold uppercase tracking-wider text-gold mb-1">
                         Party Size
                       </label>
                       <select
                         id="guests"
                         value={formData.guests}
                         onChange={(e) => setFormData({ ...formData, guests: e.target.value })}
-                        className="w-full rounded-xl border border-forest-border bg-forest-deep/80 px-4 py-3 text-sm text-cream focus:border-gold focus:outline-none focus:ring-1 focus:ring-gold"
+                        className="w-full rounded-xl border border-forest-border bg-forest-deep/80 px-3.5 py-2.5 text-sm text-cream focus:border-gold focus:outline-none focus:ring-1 focus:ring-gold"
                       >
-                        <option value="1-2 Guests">1-2 Guests</option>
-                        <option value="3-4 Guests">3-4 Guests</option>
-                        <option value="5-8 Guests">5-8 Guests</option>
-                        <option value="9+ Family Gathering">9+ Family Gathering</option>
+                        <option value="1-2 Guests">1–2 Guests</option>
+                        <option value="3-4 Guests">3–4 Guests</option>
+                        <option value="5-8 Guests">5–8 Guests</option>
+                        <option value="9+ Family Gathering">9+ Guests</option>
                       </select>
                     </div>
                   </div>
 
                   <div>
-                    <label htmlFor="note" className="block text-xs font-semibold uppercase tracking-wider text-gold mb-1.5">
-                      Special Requests / Occasion (Optional)
+                    <label htmlFor="note" className="block text-xs font-semibold uppercase tracking-wider text-gold mb-1">
+                      Note / Occasion (Optional)
                     </label>
                     <textarea
                       id="note"
-                      rows={3}
+                      rows={2}
                       placeholder="e.g. Garden terrace seating, birthday celebration..."
                       value={formData.note}
                       onChange={(e) => setFormData({ ...formData, note: e.target.value })}
-                      className="w-full rounded-xl border border-forest-border bg-forest-deep/80 px-4 py-2.5 text-sm text-cream placeholder-cream/40 focus:border-gold focus:outline-none focus:ring-1 focus:ring-gold"
+                      className="w-full rounded-xl border border-forest-border bg-forest-deep/80 px-3.5 py-2 text-sm text-cream placeholder-cream/40 focus:border-gold focus:outline-none focus:ring-1 focus:ring-gold"
                     />
                   </div>
 
                   <button
                     type="submit"
-                    className="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-gold py-4 text-xs font-bold uppercase tracking-[0.16em] text-forest-deep shadow-gold hover:bg-gold-light active:scale-98 transition-all"
+                    className="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-gold py-3 text-xs font-bold uppercase tracking-[0.14em] text-forest-deep shadow-gold hover:bg-gold-light active:scale-98 transition-all"
                   >
-                    <Send className="size-4" />
-                    <span>Send Table Enquiry</span>
+                    <Send className="size-3.5" />
+                    <span>Send Enquiry</span>
                   </button>
                 </form>
               )}

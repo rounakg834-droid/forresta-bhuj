@@ -18,11 +18,11 @@ import { easePremium } from '../lib/motion'
 type GalleryFilter = 'all' | 'terrace' | 'interior' | 'culinary' | 'beverage'
 
 const filterTabs: { id: GalleryFilter; label: string }[] = [
-  { id: 'all', label: 'All Photos' },
-  { id: 'terrace', label: 'Garden Terrace & Facade' },
-  { id: 'interior', label: 'Interiors & Lighting' },
-  { id: 'culinary', label: 'Culinary Highlights' },
-  { id: 'beverage', label: 'Beverages & Signatures' },
+  { id: 'all', label: 'All' },
+  { id: 'terrace', label: 'Garden Terrace' },
+  { id: 'interior', label: 'Interiors' },
+  { id: 'culinary', label: 'Culinary' },
+  { id: 'beverage', label: 'Beverages' },
 ]
 
 export function Gallery() {
@@ -59,7 +59,7 @@ export function Gallery() {
           {
             clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)',
             opacity: 1,
-            duration: 0.85,
+            duration: 0.75,
             ease: 'power3.out',
             scrollTrigger: {
               trigger: card,
@@ -73,10 +73,10 @@ export function Gallery() {
         if (img) {
           gsap.fromTo(
             img,
-            { scale: 1.12, yPercent: -4 },
+            { scale: 1.1, yPercent: -3 },
             {
               scale: 1.0,
-              yPercent: 4,
+              yPercent: 3,
               ease: 'none',
               scrollTrigger: {
                 trigger: card,
@@ -143,21 +143,21 @@ export function Gallery() {
     const pattern = index % 8
     switch (pattern) {
       case 0:
-        return 'md:col-span-8 md:row-span-2' // Grand feature landscape/square
+        return 'md:col-span-8 md:row-span-2'
       case 1:
-        return 'md:col-span-4 md:row-span-2' // Tall portrait
+        return 'md:col-span-4 md:row-span-2'
       case 2:
-        return 'md:col-span-4 md:row-span-2' // Tall portrait
+        return 'md:col-span-4 md:row-span-2'
       case 3:
-        return 'md:col-span-4 md:row-span-1' // Compact square
+        return 'md:col-span-4 md:row-span-1'
       case 4:
-        return 'md:col-span-4 md:row-span-2' // Tall portrait
+        return 'md:col-span-4 md:row-span-2'
       case 5:
-        return 'md:col-span-8 md:row-span-2' // Large showcase
+        return 'md:col-span-8 md:row-span-2'
       case 6:
-        return 'md:col-span-7 md:row-span-1' // Wide gourmet spread
+        return 'md:col-span-7 md:row-span-1'
       case 7:
-        return 'md:col-span-5 md:row-span-1' // Balanced landscape
+        return 'md:col-span-5 md:row-span-1'
       default:
         return 'md:col-span-4 md:row-span-2'
     }
@@ -172,7 +172,7 @@ export function Gallery() {
     >
       <div className="container-x">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 sm:gap-6">
           <div className="max-w-2xl">
             <div className="inline-flex items-center gap-2 rounded-full border border-gold/30 bg-forest-card px-3.5 py-1 text-gold">
               <Sparkles className="size-3" />
@@ -180,7 +180,7 @@ export function Gallery() {
             </div>
             <h2
               id="gallery-heading"
-              className="mt-4 font-serif text-[clamp(2.2rem,5vw,3.9rem)] font-light leading-tight text-cream"
+              className="mt-3 sm:mt-4 font-serif text-[clamp(2rem,4.5vw,3.6rem)] font-light leading-tight text-cream"
             >
               Photographs of <em className="italic font-normal text-gold">Forresta.</em>
             </h2>
@@ -188,7 +188,7 @@ export function Gallery() {
 
           <div className="flex flex-col sm:flex-row sm:items-center gap-4">
             <p className="max-w-md text-sm sm:text-base text-cream/75 leading-relaxed font-sans">
-              Authentic on-location moments. From moonlit garden tables to hand-welded art and clay kulhad specialties.
+              Authentic moments from our garden terrace and café in Bhuj.
             </p>
 
             {/* Mobile View Toggle (Feed vs Grid) */}
@@ -224,7 +224,7 @@ export function Gallery() {
         </div>
 
         {/* Category Filter Navigation Tabs */}
-        <div className="mt-8 sm:mt-12 overflow-x-auto no-scrollbar -mx-4 px-4 sm:mx-0 sm:px-0">
+        <div className="mt-7 sm:mt-10 overflow-x-auto no-scrollbar -mx-4 px-4 sm:mx-0 sm:px-0">
           <div
             role="tablist"
             aria-label="Filter gallery photographs"
@@ -244,7 +244,7 @@ export function Gallery() {
                     setSelectedIndex(null)
                   }}
                   className={cn(
-                    'relative h-11 px-5 rounded-full text-xs sm:text-sm font-semibold tracking-wide transition-all duration-300 select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold',
+                    'relative h-10 px-4 sm:px-5 rounded-full text-xs sm:text-sm font-semibold tracking-wide transition-all duration-300 select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold',
                     isActive
                       ? 'text-forest-deep'
                       : 'text-cream/80 bg-forest-card/60 hover:text-cream hover:bg-forest-card'
@@ -264,184 +264,200 @@ export function Gallery() {
           </div>
         </div>
 
-        {/* ===================================================================== */}
-        {/* MOBILE GALLERY VIEW: Edge-to-Edge Swipeable Feed OR Compact Grid    */}
-        {/* ===================================================================== */}
-        <div className="md:hidden mt-8">
-          {mobileViewMode === 'feed' ? (
-            /* Large App-Like Horizontal Swipe Track */
-            <div
-              ref={mobileTrackRef}
-              className="flex gap-4 overflow-x-auto snap-x snap-mandatory no-scrollbar -mx-4 px-4 pb-4 select-none"
-            >
-              {visibleImages.map((img, idx) => (
-                <article
-                  key={img.id}
-                  onClick={() => openLightbox(idx)}
-                  className="group relative w-[86vw] max-w-[350px] aspect-[4/5] rounded-3xl overflow-hidden shrink-0 snap-center border border-forest-border bg-forest-card shadow-xl cursor-pointer"
+        {/* DESKTOP: Asymmetric Masonry Grid */}
+        <div
+          ref={desktopGridRef}
+          className="hidden md:grid mt-8 sm:mt-10 grid-cols-12 gap-5 sm:gap-6 auto-rows-[230px]"
+        >
+          <AnimatePresence mode="popLayout">
+            {visibleImages.map((image, index) => {
+              const spanClass = getDesktopSpanClass(index)
+
+              return (
+                <motion.div
+                  key={image.id}
+                  layout
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.95 }}
+                  transition={{ duration: 0.45, ease: easePremium }}
+                  onClick={() => openLightbox(index)}
+                  className={cn(
+                    'masonry-card group relative cursor-pointer overflow-hidden rounded-2xl sm:rounded-3xl border border-gold/25 bg-forest-card shadow-lg transition-all duration-500 hover:border-gold/60 hover:shadow-2xl',
+                    spanClass
+                  )}
                 >
                   <img
-                    src={img.src}
-                    alt={img.caption}
-                    className="size-full object-cover select-none transition-transform duration-700 ease-out group-hover:scale-105"
+                    src={image.src}
+                    alt={image.caption}
+                    className="gallery-img size-full object-cover transition-transform duration-700 ease-out group-hover:scale-106 select-none will-change-transform"
                     loading="lazy"
                   />
-                  
-                  {/* Subtle Gradient & Information Card Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-forest-deep/95 via-forest-deep/30 to-transparent flex flex-col justify-between p-5">
-                    <div className="flex justify-between items-center">
-                      <span className="rounded-full bg-forest-deep/80 px-3 py-1 text-[0.65rem] font-bold uppercase tracking-wider text-gold backdrop-blur-md border border-gold/30">
-                        {img.categoryLabel}
+
+                  {/* Gradient Vignette Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-forest-deep/90 via-forest-deep/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />
+
+                  {/* Hover Information Layer */}
+                  <div className="absolute inset-0 p-5 sm:p-6 flex flex-col justify-between pointer-events-none">
+                    <div className="flex items-center justify-between">
+                      <span className="rounded-full bg-forest-deep/85 px-3 py-1 text-[0.65rem] font-bold tracking-wider text-gold uppercase backdrop-blur-md border border-gold/20">
+                        {image.category}
                       </span>
-                      <span className="grid size-8 place-items-center rounded-full bg-forest-deep/80 text-gold border border-gold/30">
-                        <Maximize2 className="size-3.5" />
-                      </span>
+                      <div className="size-9 rounded-full bg-forest-deep/80 text-gold grid place-items-center opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 shadow-md">
+                        <ZoomIn className="size-4" />
+                      </div>
                     </div>
 
                     <div>
-                      <h4 className="font-serif text-lg font-light text-cream line-clamp-1">
-                        {img.title}
-                      </h4>
-                      <p className="mt-1 text-xs text-cream/75 line-clamp-2 font-sans">
-                        {img.caption}
+                      <p className="font-serif text-base sm:text-lg text-cream font-light leading-snug drop-shadow-md">
+                        {image.caption}
                       </p>
-                      <span className="mt-3 inline-flex items-center gap-1.5 text-[0.68rem] font-semibold text-gold tracking-wide">
-                        <span>Tap to view fullscreen</span>
-                        <ZoomIn className="size-3" />
-                      </span>
+                      <p className="mt-1 text-xs text-gold/80 font-mono">
+                        Bhuj, Gujarat
+                      </p>
                     </div>
                   </div>
-                </article>
+                </motion.div>
+              )
+            })}
+          </AnimatePresence>
+        </div>
+
+        {/* MOBILE: App-Like Horizontal Swipeable Cards OR Grid */}
+        <div className="md:hidden mt-6">
+          {mobileViewMode === 'feed' ? (
+            <div
+              ref={mobileTrackRef}
+              className="flex gap-4 overflow-x-auto snap-x snap-mandatory no-scrollbar -mx-4 px-4 pb-4"
+            >
+              {visibleImages.map((image, index) => (
+                <div
+                  key={image.id}
+                  onClick={() => openLightbox(index)}
+                  className="snap-center shrink-0 w-[84vw] max-w-[340px] rounded-2xl overflow-hidden border border-gold/30 bg-forest-card shadow-xl group active:scale-[0.98] transition-transform"
+                >
+                  <div className="relative aspect-[4/5] w-full overflow-hidden">
+                    <img
+                      src={image.src}
+                      alt={image.caption}
+                      className="size-full object-cover select-none"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-forest-deep/90 via-forest-deep/25 to-transparent" />
+                    
+                    <div className="absolute top-3.5 left-3.5 right-3.5 flex items-center justify-between">
+                      <span className="rounded-full bg-forest-deep/85 px-2.5 py-0.5 text-[0.62rem] font-bold tracking-wider text-gold uppercase backdrop-blur-md border border-gold/20">
+                        {image.category}
+                      </span>
+                      <div className="size-8 rounded-full bg-forest-deep/80 text-gold grid place-items-center">
+                        <Maximize2 className="size-3.5" />
+                      </div>
+                    </div>
+
+                    <div className="absolute bottom-4 inset-x-4">
+                      <p className="font-serif text-base text-cream leading-snug drop-shadow-md">
+                        {image.caption}
+                      </p>
+                      <p className="mt-1 text-[0.68rem] text-gold/80 font-mono">
+                        Tap for fullscreen view
+                      </p>
+                    </div>
+                  </div>
+                </div>
               ))}
             </div>
           ) : (
-            /* Mobile 2-Column Clean Grid */
             <div className="grid grid-cols-2 gap-3">
-              {visibleImages.map((img, idx) => (
+              {visibleImages.map((image, index) => (
                 <div
-                  key={img.id}
-                  onClick={() => openLightbox(idx)}
-                  className="relative aspect-[4/5] rounded-2xl overflow-hidden border border-forest-border bg-forest-card shadow-md cursor-pointer"
+                  key={image.id}
+                  onClick={() => openLightbox(index)}
+                  className="relative aspect-square rounded-xl overflow-hidden border border-gold/25 bg-forest-card shadow-md active:scale-95 transition-transform"
                 >
                   <img
-                    src={img.src}
-                    alt={img.caption}
+                    src={image.src}
+                    alt={image.caption}
                     className="size-full object-cover"
                     loading="lazy"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-forest-deep/90 via-transparent to-transparent flex items-end p-2.5">
-                    <p className="text-[0.68rem] font-medium text-cream line-clamp-1">
-                      {img.title}
+                  <div className="absolute inset-0 bg-gradient-to-t from-forest-deep/80 via-transparent to-transparent" />
+                  <div className="absolute bottom-2 left-2 right-2">
+                    <p className="text-[0.68rem] text-cream truncate font-medium">
+                      {image.caption}
                     </p>
                   </div>
                 </div>
               ))}
             </div>
           )}
-
-          {/* Swipe Indicator for mobile feed */}
-          {mobileViewMode === 'feed' && (
-            <div className="mt-2 text-center text-[0.68rem] text-cream/50 font-sans tracking-wide">
-              ← Swipe horizontally to explore all {visibleImages.length} photographs →
-            </div>
-          )}
-        </div>
-
-        {/* ===================================================================== */}
-        {/* DESKTOP GALLERY VIEW: Asymmetric Masonry Layout with Parallax Masks  */}
-        {/* ===================================================================== */}
-        <div
-          ref={desktopGridRef}
-          className="hidden md:grid grid-cols-12 auto-rows-[220px] lg:auto-rows-[260px] gap-5 mt-12"
-        >
-          {visibleImages.map((img, idx) => (
-            <div
-              key={img.id}
-              onClick={() => openLightbox(idx)}
-              className={cn(
-                'masonry-card group relative overflow-hidden rounded-3xl border border-forest-border/80 bg-forest-card shadow-xl cursor-pointer transition-all duration-300 hover:border-gold/60 hover:-translate-y-1',
-                getDesktopSpanClass(idx)
-              )}
-            >
-              <img
-                src={img.src}
-                alt={img.caption}
-                className="gallery-img size-full object-cover transition-transform duration-700 ease-out group-hover:scale-108 will-change-transform select-none"
-                loading="lazy"
-              />
-
-              {/* Ambient Gradient and Hover Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-forest-deep/95 via-forest-deep/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-between p-6">
-                <div className="flex justify-end">
-                  <span className="grid size-10 place-items-center rounded-full bg-forest-deep/80 text-gold border border-gold/40 shadow-md backdrop-blur-md transition-transform group-hover:scale-110">
-                    <ZoomIn className="size-4" />
-                  </span>
-                </div>
-
-                <div>
-                  <span className="rounded-full bg-forest-deep/85 px-3 py-1 text-[0.65rem] font-bold uppercase tracking-wider text-gold backdrop-blur-md border border-gold/25 inline-block mb-2">
-                    {img.categoryLabel}
-                  </span>
-                  <h4 className="font-serif text-xl lg:text-2xl font-light text-cream">
-                    {img.title}
-                  </h4>
-                  <p className="mt-1 text-xs lg:text-sm text-cream/80 font-sans line-clamp-2 max-w-lg">
-                    {img.caption}
-                  </p>
-                </div>
-              </div>
-            </div>
-          ))}
         </div>
       </div>
 
-      {/* ===================================================================== */}
-      {/* FULLSCREEN TOUCH & KEYBOARD-ENABLED LIGHTBOX MODAL                     */}
-      {/* ===================================================================== */}
+      {/* FULLSCREEN LIGHTBOX MODAL */}
       <AnimatePresence>
-        {selectedIndex !== null && visibleImages[selectedIndex] && (
+        {selectedIndex !== null && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.25 }}
-            className="fixed inset-0 z-50 flex items-center justify-center bg-forest-deep/95 backdrop-blur-2xl p-4 sm:p-8 select-none"
+            className="fixed inset-0 z-50 flex items-center justify-center bg-forest-deep/95 backdrop-blur-xl p-3 sm:p-6"
             onClick={closeLightbox}
-            onTouchStart={handleTouchStart}
-            onTouchEnd={handleTouchEnd}
           >
-            {/* Top Bar: Counter & Close button */}
-            <div className="absolute top-4 inset-x-4 sm:top-6 sm:inset-x-8 flex items-center justify-between text-cream z-20">
-              <div className="rounded-full bg-forest-card/85 px-4 py-1.5 text-xs font-semibold tracking-wider text-gold border border-gold/30 backdrop-blur-md">
-                Photograph {selectedIndex + 1} of {visibleImages.length}
+            {/* Lightbox Controls Header */}
+            <div className="absolute top-4 inset-x-4 sm:inset-x-8 flex items-center justify-between text-cream z-10 pointer-events-auto">
+              <div className="flex items-center gap-2">
+                <span className="font-mono text-xs text-gold">
+                  {selectedIndex + 1} / {visibleImages.length}
+                </span>
+                <span className="text-xs text-cream/60 hidden sm:inline">•</span>
+                <span className="text-xs text-cream/70 hidden sm:inline uppercase tracking-wider font-semibold">
+                  {visibleImages[selectedIndex].category}
+                </span>
               </div>
+
               <button
                 type="button"
                 onClick={closeLightbox}
-                aria-label="Close Lightbox"
-                className="grid size-12 place-items-center rounded-full border border-gold/40 bg-forest-card text-gold hover:bg-gold hover:text-forest-deep transition-all shadow-lg active:scale-95"
+                aria-label="Close fullscreen view"
+                className="grid size-11 place-items-center rounded-full border border-cream/20 bg-forest-card/80 text-cream hover:border-gold hover:text-gold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
               >
-                <X className="size-6" />
+                <X className="size-5" />
               </button>
             </div>
 
-            {/* Prev Navigation Button */}
+            {/* Left Nav Button */}
             <button
               type="button"
               onClick={(e) => {
                 e.stopPropagation()
                 handlePrev()
               }}
-              aria-label="Previous photograph"
-              className="absolute left-2 sm:left-6 z-20 grid size-12 place-items-center rounded-full border border-gold/40 bg-forest-card/85 text-gold hover:bg-gold hover:text-forest-deep transition-all shadow-lg active:scale-95 backdrop-blur-md"
+              aria-label="Previous image"
+              className="absolute left-2 sm:left-6 top-1/2 -translate-y-1/2 z-10 grid size-12 place-items-center rounded-full border border-gold/30 bg-forest-card/80 text-gold hover:bg-gold hover:text-forest-deep transition-all shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
             >
               <ChevronLeft className="size-6" />
             </button>
 
-            {/* Main Lightbox Content */}
+            {/* Right Nav Button */}
+            <button
+              type="button"
+              onClick={(e) => {
+                e.stopPropagation()
+                handleNext()
+              }}
+              aria-label="Next image"
+              className="absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 z-10 grid size-12 place-items-center rounded-full border border-gold/30 bg-forest-card/80 text-gold hover:bg-gold hover:text-forest-deep transition-all shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+            >
+              <ChevronRight className="size-6" />
+            </button>
+
+            {/* Active Photograph Center Stage with Swipe Gesture Support */}
             <div
-              className="relative max-h-[82vh] max-w-4xl w-full flex flex-col items-center justify-center"
+              className="relative max-h-[85vh] max-w-[92vw] sm:max-w-4xl flex flex-col items-center"
               onClick={(e) => e.stopPropagation()}
+              onTouchStart={handleTouchStart}
+              onTouchEnd={handleTouchEnd}
             >
               <motion.img
                 key={visibleImages[selectedIndex].id}
@@ -451,35 +467,18 @@ export function Gallery() {
                 transition={{ duration: 0.3, ease: easePremium }}
                 src={visibleImages[selectedIndex].src}
                 alt={visibleImages[selectedIndex].caption}
-                className="max-h-[68vh] w-auto max-w-full rounded-2xl object-contain border border-gold/40 shadow-2xl"
+                className="max-h-[72vh] sm:max-h-[78vh] w-auto max-w-full rounded-2xl object-contain shadow-2xl border border-gold/30"
               />
 
-              {/* Caption Card */}
-              <div className="mt-4 w-full text-center max-w-xl px-2">
-                <span className="text-[0.65rem] font-bold uppercase tracking-wider text-gold">
-                  {visibleImages[selectedIndex].categoryLabel}
-                </span>
-                <h4 className="font-serif text-lg sm:text-2xl font-light text-cream mt-0.5">
-                  {visibleImages[selectedIndex].title}
-                </h4>
-                <p className="mt-1 text-xs sm:text-sm text-cream/75 font-sans leading-relaxed">
+              <div className="mt-4 text-center max-w-xl">
+                <p className="font-serif text-lg sm:text-xl text-cream font-light">
                   {visibleImages[selectedIndex].caption}
+                </p>
+                <p className="mt-1 text-xs text-gold/70 font-mono">
+                  Swipe left/right or use arrow keys
                 </p>
               </div>
             </div>
-
-            {/* Next Navigation Button */}
-            <button
-              type="button"
-              onClick={(e) => {
-                e.stopPropagation()
-                handleNext()
-              }}
-              aria-label="Next photograph"
-              className="absolute right-2 sm:right-6 z-20 grid size-12 place-items-center rounded-full border border-gold/40 bg-forest-card/85 text-gold hover:bg-gold hover:text-forest-deep transition-all shadow-lg active:scale-95 backdrop-blur-md"
-            >
-              <ChevronRight className="size-6" />
-            </button>
           </motion.div>
         )}
       </AnimatePresence>

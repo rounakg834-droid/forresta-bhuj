@@ -38,11 +38,11 @@ export function MobileQuickDock() {
               </a>
 
               <a
-                href="#visit"
+                href="#contact"
                 className="flex flex-col items-center justify-center gap-1 rounded-xl py-2 px-1 text-center text-cream transition-colors active:bg-forest-hover"
               >
                 <Phone className="size-4 text-gold" />
-                <span className="text-[0.68rem] font-semibold tracking-wide">Visit Us</span>
+                <span className="text-[0.68rem] font-semibold tracking-wide">Visit</span>
               </a>
             </div>
           </div>

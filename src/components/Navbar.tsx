@@ -78,8 +78,8 @@ export function Navbar() {
           <div className="flex items-center gap-2 sm:gap-3">
             {/* Desktop Visit CTA */}
             <a
-              href="#visit"
-              className="hidden sm:inline-flex items-center gap-2 rounded-full border border-gold/60 bg-gold/10 px-5 py-2.5 text-xs font-semibold uppercase tracking-[0.16em] text-gold transition-all duration-300 hover:bg-gold hover:text-forest-deep hover:shadow-gold active:scale-95"
+              href="#contact"
+              className="hidden sm:inline-flex items-center gap-2 rounded-full border border-gold/60 bg-gold/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.14em] text-gold transition-all duration-300 hover:bg-gold hover:text-forest-deep hover:shadow-gold active:scale-95"
             >
               <MapPin className="size-3.5" />
               <span>Visit Us</span>

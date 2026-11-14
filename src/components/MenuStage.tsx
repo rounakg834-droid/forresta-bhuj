@@ -78,30 +78,30 @@ export function MenuStage() {
       <SectionHeading
         id="menu-heading"
         index="04"
-        label="Artisan Coffee Bar"
+        label="Artisan Coffee"
         tone="dark"
         title={
           <>
-            Interactive 3D <em className="font-normal italic text-gold">Bar Experience</em>
+            Interactive 3D <em className="font-normal italic text-gold">Bar</em>
           </>
         }
       />
       <Reveal delay={0.1}>
-        <div aria-live="polite" className="mt-6 max-w-md">
-          <div className="inline-flex items-center gap-1.5 rounded-full bg-forest-card/80 px-3 py-1 text-[0.68rem] font-bold tracking-wider text-gold border border-gold/30 mb-2">
+        <div aria-live="polite" className="mt-5 max-w-md">
+          <div className="inline-flex items-center gap-1.5 rounded-full bg-forest-card/80 px-3 py-1 text-[0.65rem] font-bold tracking-wider text-gold border border-gold/30 mb-2">
             <span>Drag or swipe drink to rotate in 3D</span>
           </div>
           <p className="font-serif text-2xl sm:text-3xl text-cream">
             {active.name}
-            <span className="ml-3 text-lg font-sans font-semibold text-gold">₹{active.price}</span>
+            <span className="ml-3 text-base sm:text-lg font-sans font-semibold text-gold">₹{active.price}</span>
           </p>
-          <p className="mt-2 leading-relaxed text-pretty text-cream/90 text-sm sm:text-base">{active.description}</p>
-          <p className="mt-1 text-xs sm:text-sm text-gold">{active.notes}</p>
+          <p className="mt-2 leading-relaxed text-cream/90 text-sm sm:text-base">{active.description}</p>
+          <p className="mt-1 text-xs sm:text-sm text-gold font-medium">{active.notes}</p>
         </div>
         <div
           role="group"
           aria-label="Choose a drink to inspect in 3D"
-          className="pointer-events-auto mt-6 flex w-fit max-w-full gap-1.5 overflow-x-auto rounded-full bg-forest-deep/80 p-1.5 backdrop-blur-md border border-forest-border no-scrollbar"
+          className="pointer-events-auto mt-5 flex w-fit max-w-full gap-1.5 overflow-x-auto rounded-full bg-forest-deep/80 p-1.5 backdrop-blur-md border border-forest-border no-scrollbar"
         >
           {drinks.map(({ id, name }) => (
             <button
@@ -113,7 +113,7 @@ export function MenuStage() {
                 rig.drinkId = id
               }}
               className={cn(
-                'h-11 shrink-0 rounded-full px-4 text-xs font-semibold whitespace-nowrap transition-colors duration-300',
+                'h-10 sm:h-11 shrink-0 rounded-full px-3.5 sm:px-4 text-xs font-semibold whitespace-nowrap transition-colors duration-300',
                 activeId === id ? 'bg-gold text-forest-deep font-bold shadow-gold' : 'text-cream hover:bg-forest-card',
               )}
             >

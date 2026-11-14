@@ -1,10 +1,14 @@
 import { useEffect } from 'react'
+import { getLenis } from '../lib/lenis'
 
 export function useScrollLock(locked: boolean) {
   useEffect(() => {
     if (!locked) {
       return
     }
+
+    const lenis = getLenis()
+    lenis?.stop()
 
     const root = document.documentElement
     const { body } = document
@@ -20,6 +24,7 @@ export function useScrollLock(locked: boolean) {
     return () => {
       root.style.overflow = previousOverflow
       body.style.paddingRight = previousPadding
+      lenis?.start()
     }
   }, [locked])
 }

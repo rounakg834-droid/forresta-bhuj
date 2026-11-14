@@ -11,7 +11,7 @@ export const forrestaNavLinks: ForrestaNavLink[] = [
   { id: 'experience', label: 'Experience', href: '#experience', number: '03' },
   { id: 'gallery', label: 'Gallery', href: '#gallery', number: '04' },
   { id: 'menu', label: 'Menu', href: '#menu', number: '05' },
-  { id: 'contact', label: 'Visit Us', href: '#contact', number: '06' },
+  { id: 'contact', label: 'Visit', href: '#contact', number: '06' },
 ]
 
 export const forrestaInfo = {
@@ -19,24 +19,24 @@ export const forrestaInfo = {
   city: 'BHUJ',
   state: 'Gujarat, India',
   fullTitle: 'FORRESTA BHUJ',
-  tagline: 'Fresh & Healthy • Garden Café & Kitchen',
-  subtagline: 'An Oasis of Taste, Architecture & Botanical Serenity',
+  tagline: 'Fresh & Wholesome • Garden Café',
+  subtagline: 'A Botanical Garden Café & Kitchen',
   location: {
     venue: 'HIMS Business Park',
     street: 'Airport Road',
     city: 'Bhuj',
     state: 'Gujarat',
     country: 'India',
-    formattedAddress: 'HIMS Business Park, Airport Road, Bhuj, Gujarat, India',
+    formattedAddress: 'HIMS Business Park, Airport Road, Bhuj, Gujarat',
     mapsUrl: 'https://maps.google.com/?q=HIMS+Business+Park+Airport+Road+Bhuj+Gujarat',
   },
   timings: {
     hours: '11:00 AM – 11:30 PM',
-    days: 'Open All 7 Days',
-    mealService: 'Lunch, High Tea & Dinner Garden Dining',
+    days: 'Open Daily',
+    mealService: 'Lunch, High Tea & Dinner',
   },
   contact: {
-    phoneDisplay: '+91 (0) 2832 FORRESTA',
+    phoneDisplay: '+91 2832 FORRESTA',
     phoneHref: 'tel:+919876543210',
     email: 'hello@forrestacafe.in',
     instagramHandle: '@forresta_bhuj',
@@ -44,20 +44,20 @@ export const forrestaInfo = {
   },
   highlights: [
     {
-      title: 'Open-Air Garden Terrace',
-      description: 'Dine under star-lit night skies surrounded by fragrant frangipani trees and warm designer lanterns.',
+      title: 'Open-Air Terrace',
+      description: 'Dine under open skies surrounded by flowering trees and warm lanterns.',
     },
     {
-      title: 'Fresh & Healthy Kitchen',
-      description: 'Crafted with premium wholesome ingredients, honoring authentic flavors with contemporary flair.',
+      title: 'Fresh & Wholesome',
+      description: 'Made to order with fresh, quality ingredients.',
     },
     {
-      title: 'Botanical Architectural Design',
-      description: 'Bespoke sculptural lighting, warm textured limewash stucco, and intimate plush leather booths.',
+      title: 'Botanical Ambience',
+      description: 'Textured walls, ambient lighting, and comfortable booths.',
     },
     {
-      title: 'Royal Kulhad & Artisan Shakes',
-      description: 'Signature terracotta kulhad creations alongside custom-bottled chilled café beverages.',
+      title: 'Artisanal Drinks',
+      description: 'Signature clay kulhad drinks and chilled bottled shakes.',
     },
   ],
 }

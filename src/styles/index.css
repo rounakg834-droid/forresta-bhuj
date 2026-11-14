@@ -82,11 +82,11 @@
 }
 
 @utility section-pad {
-  @apply py-20 sm:py-24 md:py-32 lg:py-40;
+  @apply py-16 sm:py-20 md:py-24 lg:py-28;
 }
 
 @utility eyebrow {
-  @apply font-sans text-[0.72rem] sm:text-[0.75rem] font-semibold tracking-[0.24em] uppercase;
+  @apply font-sans text-[0.7rem] sm:text-[0.74rem] font-semibold tracking-[0.22em] uppercase;
 }
 
 @utility display-heading {
@@ -112,6 +112,23 @@
     overflow-x: clip;
     width: 100%;
     min-height: 100vh;
+  }
+
+  /* Lenis Recommended Ultra-Smooth Scroll Support */
+  html.lenis, html.lenis body {
+    height: auto;
+  }
+
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+
+  .lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+  }
+
+  .lenis.lenis-stopped {
+    overflow: hidden;
   }
 
   button {

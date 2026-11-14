@@ -13,28 +13,27 @@ export function Footer() {
       {/* Decorative Top Accent Line with Gold Gradient */}
       <div className="h-0.5 w-full bg-gradient-to-r from-transparent via-gold/50 to-transparent" />
 
-      <div className="container-x py-16 sm:py-20 lg:py-24">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 lg:gap-14 items-start">
+      <div className="container-x py-12 sm:py-16 lg:py-20">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12 items-start">
           {/* Brand Column */}
           <div className="md:col-span-6 lg:col-span-5">
             <a href="#home" aria-label="FORRESTA BHUJ Home" className="inline-block">
-              <Wordmark size="lg" />
+              <Wordmark size="md" />
             </a>
 
-            <p className="mt-5 text-sm sm:text-base leading-relaxed text-cream/75 max-w-sm font-sans">
-              Bhuj’s premier botanical garden café. Handcrafted multi-cuisine culinary creations,
-              royal kulhad beverages, and serene open-air dining under Gujarat’s starlit skies.
+            <p className="mt-4 text-sm sm:text-base leading-relaxed text-cream/75 max-w-sm font-sans">
+              A botanical garden café in Bhuj for good food, fresh vibes, and quiet conversations.
             </p>
 
-            <div className="mt-6 flex items-center gap-3">
+            <div className="mt-5 flex items-center gap-3">
               <a
                 href={forrestaInfo.contact.instagramUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Follow Forresta Bhuj on Instagram"
-                className="grid size-11 place-items-center rounded-full border border-gold/40 bg-forest-card text-gold hover:bg-gold hover:text-forest-deep transition-all duration-300"
+                className="grid size-10 place-items-center rounded-full border border-gold/40 bg-forest-card text-gold hover:bg-gold hover:text-forest-deep transition-all duration-300"
               >
-                <InstagramIcon className="size-5" />
+                <InstagramIcon className="size-4" />
               </a>
 
               <a
@@ -42,22 +41,22 @@ export function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Find Forresta on Google Maps"
-                className="grid size-11 place-items-center rounded-full border border-gold/40 bg-forest-card text-gold hover:bg-gold hover:text-forest-deep transition-all duration-300"
+                className="grid size-10 place-items-center rounded-full border border-gold/40 bg-forest-card text-gold hover:bg-gold hover:text-forest-deep transition-all duration-300"
               >
-                <MapPin className="size-5" />
+                <MapPin className="size-4" />
               </a>
             </div>
           </div>
 
           {/* Quick Navigation Links */}
           <div className="md:col-span-3 lg:col-span-3">
-            <h3 className="eyebrow text-gold font-bold">Explore Forresta</h3>
-            <ul className="mt-4 space-y-2.5">
+            <h3 className="eyebrow text-gold font-bold">Explore</h3>
+            <ul className="mt-3 space-y-2">
               {forrestaNavLinks.map(({ id, label, href }) => (
                 <li key={id}>
                   <a
                     href={href}
-                    className="text-sm text-cream/75 hover:text-gold transition-colors inline-block py-1"
+                    className="text-xs sm:text-sm text-cream/75 hover:text-gold transition-colors inline-block py-0.5"
                   >
                     {label}
                   </a>
@@ -68,28 +67,28 @@ export function Footer() {
 
           {/* Location & Timings Details */}
           <div className="md:col-span-3 lg:col-span-4">
-            <h3 className="eyebrow text-gold font-bold">Café Location</h3>
-            <div className="mt-4 space-y-3 text-sm text-cream/75 font-sans">
-              <div className="flex items-start gap-2.5">
-                <MapPin className="size-4 text-gold shrink-0 mt-1" />
+            <h3 className="eyebrow text-gold font-bold">Visit</h3>
+            <div className="mt-3 space-y-2.5 text-xs sm:text-sm text-cream/75 font-sans">
+              <div className="flex items-start gap-2">
+                <MapPin className="size-3.5 text-gold shrink-0 mt-1" />
                 <span>
-                  {forrestaInfo.location.venue}, {forrestaInfo.location.street}, {forrestaInfo.location.city}, {forrestaInfo.location.state}
+                  {forrestaInfo.location.venue}, {forrestaInfo.location.street}, {forrestaInfo.location.city}
                 </span>
               </div>
-              <div className="flex items-start gap-2.5">
-                <Clock className="size-4 text-gold shrink-0 mt-1" />
+              <div className="flex items-start gap-2">
+                <Clock className="size-3.5 text-gold shrink-0 mt-1" />
                 <span>
                   {forrestaInfo.timings.hours} ({forrestaInfo.timings.days})
                 </span>
               </div>
             </div>
 
-            <div className="mt-6">
+            <div className="mt-5">
               <a
-                href="#visit"
-                className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-gold hover:text-gold-light"
+                href="#contact"
+                className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-gold hover:text-gold-light"
               >
-                <span>Plan Your Gathering</span>
+                <span>Plan Your Visit</span>
                 <span>→</span>
               </a>
             </div>
@@ -97,9 +96,9 @@ export function Footer() {
         </div>
 
         {/* Bottom Bar: Copyright & Back to Top */}
-        <div className="mt-14 sm:mt-18 pt-8 border-t border-forest-border/60 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-cream/60">
+        <div className="mt-10 sm:mt-14 pt-6 border-t border-forest-border/60 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-cream/60">
           <p className="flex items-center gap-1.5 text-center sm:text-left">
-            <span>© {new Date().getFullYear()} FORRESTA BHUJ. Handcrafted in Gujarat with</span>
+            <span>© 2026 FORRESTA BHUJ. Handcrafted in Gujarat with</span>
             <Heart className="size-3 text-rose-400 fill-rose-400 inline" />
           </p>
 
@@ -107,10 +106,10 @@ export function Footer() {
             type="button"
             onClick={scrollToTop}
             aria-label="Scroll back to top"
-            className="inline-flex items-center gap-2 rounded-full border border-gold/30 bg-forest-card px-4 py-2 text-gold hover:border-gold hover:bg-gold hover:text-forest-deep transition-all duration-300"
+            className="inline-flex items-center gap-2 rounded-full border border-gold/30 bg-forest-card px-3.5 py-1.5 text-gold hover:border-gold hover:bg-gold hover:text-forest-deep transition-all duration-300"
           >
-            <span className="text-[0.68rem] font-bold uppercase tracking-wider">Back to Top</span>
-            <ArrowUp className="size-3.5" />
+            <span className="text-[0.65rem] font-bold uppercase tracking-wider">Back to Top</span>
+            <ArrowUp className="size-3" />
           </button>
         </div>
       </div>

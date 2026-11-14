@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { MotionConfig } from 'motion/react'
 import { SceneProvider } from './components/SceneProvider'
 import { SceneBackdrop } from './components/SceneBackdrop'
@@ -5,6 +6,7 @@ import { LoadingScreen } from './components/LoadingScreen'
 import { Navbar } from './components/Navbar'
 import { MobileQuickDock } from './components/MobileQuickDock'
 import { ToastProvider } from './components/ToastProvider'
+import { initLenis } from './lib/lenis'
 import { Hero } from './sections/Hero'
 import { About } from './sections/About'
 import { Experience } from './sections/Experience'
@@ -15,6 +17,11 @@ import { Contact } from './sections/Contact'
 import { Footer } from './sections/Footer'
 
 export default function App() {
+  // Initialize Lenis ultra-smooth scrolling synchronized with GSAP ScrollTrigger
+  useEffect(() => {
+    return initLenis()
+  }, [])
+
   return (
     <MotionConfig reducedMotion="user">
       <ToastProvider>
